@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SI & PC Recruitment Hub | Apex Exams SaaS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Noto+Sans+Telugu:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0284c7; --primary-dark: #0369a1; --accent: #16a34a;
+      --purple: #7c3aed; --amber: #d97706; --bg: #f8fafc; --text: #0f172a; --muted: #475569; --border: #e2e8f0;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', 'Noto Sans Telugu', sans-serif; }
+    body { background: var(--bg); color: var(--text); line-height: 1.6; padding-bottom: 50px; }
+
+    nav {
+      background: #0f172a; color: white; padding: 14px 20px; border-bottom: 3px solid #38bdf8;
+    }
+    .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+    .back-btn {
+      color: #38bdf8; text-decoration: none; font-weight: 800; font-size: 0.9rem;
+      background: rgba(56, 189, 248, 0.12); padding: 7px 14px; border-radius: 8px;
+    }
+
+    .sub-hero {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: white; padding: 40px 20px; text-align: center;
+    }
+    .sub-hero h1 { font-size: 1.9rem; font-weight: 900; color: #38bdf8; margin-bottom: 8px; }
+    .sub-hero p { color: #cbd5e1; max-width: 680px; margin: 0 auto; font-size: 0.96rem; }
+
+    .container { max-width: 1100px; margin: 28px auto; padding: 0 16px; }
+
+    /* Step-2 Selection Grid */
+    .hub-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-bottom: 32px; }
+    .hub-card {
+      background: white; border-radius: 16px; padding: 24px; border: 1.5px solid var(--border);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04); display: flex; flex-direction: column; justify-content: space-between;
+      transition: 0.2s;
+    }
+    .hub-card:hover { transform: translateY(-3px); border-color: var(--primary); }
+    .icon-box { width: 46px; height: 46px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: 12px; }
+    .hub-card h3 { font-size: 1.15rem; font-weight: 800; margin-bottom: 6px; }
+    .hub-card p { font-size: 0.86rem; color: var(--muted); margin-bottom: 18px; }
+
+    .btn {
+      display: block; width: 100%; padding: 11px; border-radius: 9px; text-align: center;
+      font-weight: 800; font-size: 0.88rem; text-decoration: none; border: none; cursor: pointer;
+    }
+    .btn-blue { background: #0284c7; color: white; }
+    .btn-green { background: #16a34a; color: white; }
+    .btn-purple { background: #7c3aed; color: white; }
+    .btn-amber { background: #d97706; color: white; }
+
+    /* Detail Panels */
+    .detail-box {
+      background: white; border-radius: 16px; padding: 24px; border: 1px solid var(--border);
+      box-shadow: 0 4px 14px rgba(0,0,0,0.04); display: none;
+    }
+    .detail-box.active { display: block; }
+    .item-row {
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+      padding: 14px; border: 1px solid var(--border); border-radius: 10px; margin-bottom: 10px; background: #f8fafc;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <strong style="font-size:1.1rem; color:#38bdf8;">Apex Exams • SI & PC Hub</strong>
+      <a href="index.html" class="back-btn">⬅️ Back to Home</a>
+    </div>
+  </nav>
+
+  <section class="sub-hero">
+    <h1>👮‍♂️ SI & PC Recruitment Hub (TSLPRB / AP Police)</h1>
+    <p>Step 2: Select your required module below — Attempt CBT Mock Exams, Browse Official Syllabus, Download Study Material, or Manage Institute Exams.</p>
+  </section>
+
+  <div class="container">
+    <!-- 4 CHOICE CARDS -->
+    <div class="hub-grid">
+      <div class="hub-card">
+        <div>
+          <div class="icon-box" style="background:#e0f2fe;">📝</div>
+          <h3>Online Mock Exams</h3>
+          <p>Attempt full-length bilingual (English & Telugu) TSLPRB SI & PC Prelims / Mains CBT mock tests.</p>
+        </div>
+        <button class="btn btn-blue" onclick="showPanel('exams')">Select Mock Exam ➔</button>
+      </div>
+
+      <div class="hub-card">
+        <div>
+          <div class="icon-box" style="background:#dcfce7;">📖</div>
+          <h3>Official Syllabus</h3>
+          <p>Detailed paper-wise & topic-wise syllabus breakdown for Arithmetic, Reasoning & General Studies.</p>
+        </div>
+        <button class="btn btn-green" onclick="showPanel('syllabus')">View Syllabus ➔</button>
+      </div>
+
+      <div class="hub-card">
+        <div>
+          <div class="icon-box" style="background:#ede9fe;">📚</div>
+          <h3>Study Material & Notes</h3>
+          <p>Quick formula sheets, shortcut compendiums, and previous TSLPRB solved question banks.</p>
+        </div>
+        <button class="btn btn-purple" onclick="showPanel('material')">Open Study Material ➔</button>
+      </div>
+
+      <div class="hub-card">
+        <div>
+          <div class="icon-box" style="background:#fef3c7;">🏛️</div>
+          <h3>Institute Director</h3>
+          <p>Coaching center directors can start live batch exams, reset student PINs & export A4 merit PDFs.</p>
+        </div>
+        <a href="si-mains-paper1.html" class="btn btn-amber">Director / Admin Login ➔</a>
+      </div>
+    </div>
+
+    <!-- PANEL 1: EXAMS LIST -->
+    <div id="panel-exams" class="detail-box active">
+      <h3 style="margin-bottom:14px; color:#0369a1;">📝 Available SI & PC Online Mock Tests</h3>
+      <div class="item-row">
+        <div>
+          <strong>TS SI Mains 2023 — Paper-1 (Arithmetic & Reasoning)</strong>
+          <div style="font-size:0.84rem; color:#475569;">200 Questions • 200 Marks • 180 Minutes • Bilingual (English & తెలుగు)</div>
+        </div>
+        <a href="si-mains-paper1.html" class="btn btn-blue" style="width:auto; padding:10px 18px;">🚀 Launch Paper-1 Exam</a>
+      </div>
+      <div class="item-row">
+        <div>
+          <strong>TS SI Mains — Paper-2 (General Studies & Telangana Movement)</strong>
+          <div style="font-size:0.84rem; color:#475569;">200 Questions • 200 Marks • 180 Minutes • Bilingual (English & తెలుగు)</div>
+        </div>
+        <a href="si-mains-paper1.html" class="btn btn-blue" style="width:auto; padding:10px 18px;">🚀 Launch Paper-2 Portal</a>
+      </div>
+    </div>
+
+    <!-- PANEL 2: SYLLABUS -->
+    <div id="panel-syllabus" class="detail-box">
+      <h3 style="margin-bottom:14px; color:#166534;">📖 TSLPRB SI & PC Official Exam Syllabus</h3>
+      <div class="item-row">
+        <div>
+          <strong>Paper-1: Arithmetic & Test of Reasoning / Mental Ability</strong>
+          <div style="font-size:0.84rem; color:#475569;">Number System, Simple & Compound Interest, Ratio & Proportion, Averages, Percentages, Profit & Loss, Time & Work, Time & Distance, Mensuration, Data Interpretation, Analytical & Logical Reasoning.</div>
+        </div>
+      </div>
+      <div class="item-row">
+        <div>
+          <strong>Paper-2: General Studies</strong>
+          <div style="font-size:0.84rem; color:#475569;">General Science, Current Affairs, History of India, Indian National Movement, Indian Geography, Polity & Economy, and Telangana State Formation & Movement.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PANEL 3: MATERIAL -->
+    <div id="panel-material" class="detail-box">
+      <h3 style="margin-bottom:14px; color:#5b21b6;">📚 Study Materials & Revision Handouts</h3>
+      <div class="item-row">
+        <div>
+          <strong>Arithmetic Complete Formula & Shortcut Handout (English & Telugu)</strong>
+          <div style="font-size:0.84rem; color:#475569;">Chapter-wise key formulas for Mensuration, Interest, Time & Work, and Speed-Distance.</div>
+        </div>
+        <a href="si-mains-paper1.html" class="btn btn-purple" style="width:auto; padding:9px 16px;">📥 Practice in Portal</a>
+      </div>
+      <div class="item-row">
+        <div>
+          <strong>TSLPRB Previous Papers & Answer Key Analysis</strong>
+          <div style="font-size:0.84rem; color:#475569;">Complete question-by-question solution sheets available inside the Student Portal after submission.</div>
+        </div>
+        <a href="si-mains-paper1.html" class="btn btn-purple" style="width:auto; padding:9px 16px;">📋 Open Solution Bank</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function showPanel(name) {
+      ['exams', 'syllabus', 'material'].forEach(p => {
+        document.getElementById('panel-' + p).classList.toggle('active', p === name);
+      });
+      document.getElementById('panel-' + name).scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>
